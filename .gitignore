@@ -1,11 +1,24 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
 .idea
-01 Starting Project/
-02 Updated Project/
-03 Extra Files/
-04 Updated Files/
-05 Finished/
-01+Starting+Project.zip
-02+Updated+Project.zip
-03+Extra+Files.zip
-04+Updated+Files.zip
-05+Finished.zip
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
