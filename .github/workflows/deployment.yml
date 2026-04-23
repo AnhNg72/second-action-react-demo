@@ -1,4 +1,4 @@
-name: First Project
+name: Deploy Project
 
 # Controls when the workflow will run
 on:
@@ -23,14 +23,34 @@ jobs:
        # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
        - uses: actions/checkout@v3
 
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # Install NodeJS
        - uses: actions/setup-node@v3
          with:
            node-version: '18'
 
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # Install dependencies
        - run: npm ci
 
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # Run tests
        - run: npm test
 
+  # This workflow contains a 2nd job called "deploy"
+  deploy:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      # Install NodeJS
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      # Install dependencies
+      - run: npm ci
+
+      # Build project
+      - run: npm run build
